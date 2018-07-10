@@ -50,6 +50,11 @@ def list_containers():
 
 
 @app.task
+def container_info(container_id):
+    return client.containers.get(container_id).attrs
+
+
+@app.task
 def create_container(image, command=None, **kwargs):
     container = client.containers.create(image, command, **kwargs)
     return (container.id, container.name)
