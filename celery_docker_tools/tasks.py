@@ -15,7 +15,7 @@ def client_exec(func_name, *args, **kwargs):
     func = client
     for name in func_name.split('.'):
         func = getattr(func, name)
-    return func(*args, **kwargs)
+    func(*args, **kwargs)
 
 
 @app.task
