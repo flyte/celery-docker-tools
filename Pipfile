@@ -14,6 +14,7 @@ python_version = "3.6"
 
 ipython = "*"
 redis = "*"
+jupyter = "*"
 
 
 [packages]

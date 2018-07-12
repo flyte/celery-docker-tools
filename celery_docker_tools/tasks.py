@@ -34,8 +34,8 @@ def start_container(container_id):
 
 
 @app.task
-def remove_container(container_id):
-    client.containers.get(container_id).remove()
+def remove_container(container_id, force=False):
+    client.containers.get(container_id).remove(force)
 
 
 @app.task
