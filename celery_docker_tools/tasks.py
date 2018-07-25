@@ -8,14 +8,16 @@ client = docker.from_env()
 
 
 @app.task
-def client_exec(func_name, *args, **kwargs):
+def client_exec(func_name, *args, return_attr=None, **kwargs):
     """
     Run a function of the docker client with the given arguments.
     """
     func = client
     for name in func_name.split('.'):
         func = getattr(func, name)
-    func(*args, **kwargs)
+    result = func(*args, **kwargs)
+    if return_attr is not None:
+        return getattr(result, return_attr)
 
 
 @app.task
