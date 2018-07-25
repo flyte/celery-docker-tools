@@ -63,3 +63,8 @@ def create_container(image, command=None, **kwargs):
 @app.task
 def container_status(container_id):
     return client.containers.get(container_id).status
+
+
+@app.task
+def pull_image(repository, **kwargs):
+    return client.images.pull(repository, **kwargs).id
