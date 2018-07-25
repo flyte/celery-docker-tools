@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='celery-docker-tools',
-    version='0.0.4',
+    version='0.0.5',
     packages=find_packages(),
     author='Ellis Percival',
     author_email='celery-docker-tools_pypi@failcode.co.uk',
